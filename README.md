@@ -26,4 +26,3 @@ A clean and customizable portfolio template for developers, built using **React*
 👨‍💻 **Contributor**
 
 [yadhidya](https://github.com/yadhidya)
->>>>>>> 07b41cc88b189497e7ff4f72018dcfe0e766f2f5

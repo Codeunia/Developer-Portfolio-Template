@@ -3,7 +3,6 @@
   padding: 2rem;
   text-align: center;
 }
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -38,8 +37,4 @@
 
 .read-the-docs {
   color: #888;
-}
-html,body{
-  @apply bg-white text-black dark:bg-gray-900 dark:text-white;
-  min-height: 100vh;
 }

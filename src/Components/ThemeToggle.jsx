@@ -24,18 +24,15 @@ const ThemeToggle = () => {
               : "0 1px 8px 0 #0002",
         }}
       >
-        {/* Sun icon (left) */}
         <FaSun
           size={18}
           className={`z-10 ${theme === "light" ? "text-yellow-500" : "text-neutral-500"}`}
         />
-        {/* Moon icon (right) */}
         <FaMoon
           size={18}
           className={`z-10 ${theme === "dark" ? "text-white" : "text-neutral-500"}`}
         />
 
-        {/* Sliding thumb */}
         <motion.div
           layout
           transition={{ type: "spring", stiffness: 700, damping: 30 }}

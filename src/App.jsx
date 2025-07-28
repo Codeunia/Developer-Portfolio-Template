@@ -1,6 +1,7 @@
 import Header from './Components/Header';
 import About from './Components/About';
 import Skills from './Components/Skills';
+import Projects from './Components/Projects';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <section id="about">
           <About />
           <Skills/>
+          <Projects/>
         </section>
       </main>
     </div>

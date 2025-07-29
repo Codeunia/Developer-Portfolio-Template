@@ -2,6 +2,7 @@ import Header from './Components/Header';
 import About from './Components/About';
 import Skills from './Components/Skills';
 import Projects from './Components/Projects';
+import Achievements from './Components/Achievements';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <About />
           <Skills/>
           <Projects/>
+          <Achievements/>
         </section>
       </main>
     </div>

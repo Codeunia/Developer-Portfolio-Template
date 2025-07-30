@@ -1,127 +1,123 @@
-// Achievements.jsx
+import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 const achievements = [
   {
-    title: "Winner - CodeHack 2024",
-    description: "Secured 1st place among 500+ teams in a national-level hackathon hosted by TechNova.",
-    date: "Mar 2024",
-    tag: "Hackathon",
-    icon: "🏆",
-    link: "https://example.com/codehack-certificate"
-  },
-  {
-    title: "Top 10% - LeetCode Spring Challenge",
-    description: "Ranked in the top 10% globally in LeetCode's Spring coding competition.",
-    date: "Apr 2024",
-    tag: "Competitive",
-    icon: "💻",
-    link: "https://leetcode.com/spring-challenge-2024"
-  },
-  {
-    title: "Certification - Full Stack Development",
-    description: "Completed Meta’s Full Stack Professional Certificate (React, Node, MongoDB).",
+    title: "1st Place – Innovation Sprint",
+    org: "TechSpark University",
     date: "Jan 2024",
-    tag: "Certification",
-    icon: "📜",
-    link: "https://coursera.org/meta-fullstack"
+    desc: "Led a team to victory in a national-level innovation sprint by building a smart agriculture prototype in under 48 hours.",
+    link: "https://example.com/innovation-cert",
   },
   {
-    title: "Speaker - DevSummit Chennai",
-    description: "Delivered a lightning talk on Web Performance Optimization for 100+ attendees.",
-    date: "Feb 2024",
-    tag: "Speaking",
-    icon: "🎤",
-    link: "https://devsummit.in/speaker-lineup"
+    title: "Winner – UX Design Challenge",
+    org: "DesignX · Remote",
+    date: "Mar 2024",
+    desc: "Created an intuitive financial app prototype that won the judge's choice award for usability and accessibility.",
+    link: "https://example.com/ux-cert",
+  },
+  {
+    title: "Top 5 Finalist – AI Hackfest",
+    org: "CodeCore Labs",
+    date: "Aug 2023",
+    desc: "Developed an AI-based fraud detection model that achieved 93% accuracy and made it to the national finals.",
+    link: "https://example.com/ai-cert",
+  },
+  {
+    title: "Internship – QuantumSoft",
+    org: "QuantumSoft Solutions Pvt Ltd",
+    date: "Jul 2023 – Dec 2023",
+    desc: "Worked on full-stack dashboards and built custom analytics tools using React and Flask.",
+    link: "https://example.com/quantum-intern",
+  },
+  {
+    title: "Best Project – Capstone Expo",
+    org: "Digital Minds Institute",
+    date: "Nov 2022",
+    desc: "Presented a smart energy monitoring system that was selected as the best capstone project of the semester.",
+    link: "https://example.com/expo-cert",
+  },
+  {
+    title: "2nd Place – Debug Clash",
+    org: "DevHackers Conference",
+    date: "May 2024",
+    desc: "Ranked 2nd out of 300+ participants in a timed debugging and optimization contest.",
+    link: "https://example.com/debug-cert",
   },
 ];
 
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  show: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.7, ease: "easeOut" },
+  }),
 };
 
-const item = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0 },
-};
-
-const Achievements = () => {
-  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.1 });
-
+export default function Achievements() {
   return (
     <section
       id="achievements"
-      className="py-24 px-4 max-w-6xl mx-auto relative z-10"
+      className="relative w-full px-6 py-24 bg-gradient-to-b from-[#f5f7fb] via-[#e6ecf8] to-[#f5f7fb] dark:from-[#0c0b16] dark:via-[#1a152d] dark:to-[#0c0b16] transition-colors duration-500"
     >
+      {/* Background Glows */}
+      <div className="absolute -top-32 -left-24 w-[500px] h-[500px] bg-[#7f5af0]/20 dark:bg-[#ff6ac1]/20 rounded-full blur-[160px] z-0" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#ffb86c]/20 dark:bg-[#7f5af0]/20 rounded-full blur-[140px] z-0" />
+
+      {/* Header */}
       <motion.div
-        className="text-center mb-16"
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="relative z-10 text-center mb-20"
       >
-        <h2 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-500 to-indigo-500 text-transparent bg-clip-text">
+        <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-2 tracking-tight">
           Achievements
         </h2>
-        <p className="mt-2 text-zinc-500 dark:text-zinc-400 text-base max-w-xl mx-auto">
-          Highlights of accomplishments that define our impact.
+        <p className="text-base text-gray-700 dark:text-gray-300">
+          Highlights of my recent victories and milestones
         </p>
       </motion.div>
 
-      <motion.div
-        ref={ref}
-        variants={container}
-        initial="hidden"
-        animate={inView ? "show" : "hidden"}
-        className="grid sm:grid-cols-2 lg:grid-cols-2 gap-10"
-      >
-        {achievements.map((achieve, i) => (
+      {/* Cards */}
+      <div className="relative z-10 max-w-6xl mx-auto grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+        {achievements.map((item, i) => (
           <motion.div
             key={i}
-            variants={item}
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.4 }}
-            className="rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 p-6 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+            custom={i}
+            initial="hidden"
+            whileInView="show"
+            variants={cardVariants}
+            viewport={{ once: true }}
+            className="group relative bg-white/70 dark:bg-white/5 backdrop-blur-3xl border border-white/20 dark:border-white/10 rounded-3xl p-6 shadow-2xl hover:shadow-indigo-500/30 hover:scale-[1.03] transition-all duration-300"
           >
-            <div className="flex items-start gap-4 mb-4">
-              <div className="text-4xl">{achieve.icon}</div>
-              <div>
-                <h3 className="text-xl font-semibold text-zinc-800 dark:text-white">
-                  {achieve.title}
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-300 mt-1">
-                  {achieve.description}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-auto flex flex-col gap-3">
-              <div className="flex justify-between items-center text-sm text-zinc-500 dark:text-zinc-400">
-                <span>{achieve.date}</span>
-                <span className="inline-block bg-indigo-100 dark:bg-indigo-800 text-indigo-700 dark:text-white px-3 py-0.5 rounded-full">
-                  {achieve.tag}
-                </span>
-              </div>
+            <div className="flex flex-col gap-3">
+              <p className="text-sm text-[#7f5af0] dark:text-[#ffb86c] font-medium tracking-wide">
+                {item.date}
+              </p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-snug">
+                {item.title}
+              </h3>
+              <p className="text-sm text-gray-700 dark:text-gray-300 font-semibold">
+                {item.org}
+              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                {item.desc}
+              </p>
               <a
-                href={achieve.link}
+                href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-center mt-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-md shadow-md"
+                className="inline-flex items-center text-[#7f5af0] dark:text-[#ffb86c] text-sm font-semibold mt-3 hover:underline"
               >
-                📄 View Certification
+                View Certificate <ExternalLink className="ml-1 w-4 h-4" />
               </a>
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
-};
-
-export default Achievements;
+}

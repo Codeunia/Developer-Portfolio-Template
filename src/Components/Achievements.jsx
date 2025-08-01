@@ -61,11 +61,9 @@ export default function Achievements() {
       id="achievements"
       className="relative w-full px-6 py-24 bg-gradient-to-b from-[#f5f7fb] via-[#e6ecf8] to-[#f5f7fb] dark:from-[#0c0b16] dark:via-[#1a152d] dark:to-[#0c0b16] transition-colors duration-500"
     >
-      {/* Background Glows */}
       <div className="absolute -top-32 -left-24 w-[500px] h-[500px] bg-[#7f5af0]/20 dark:bg-[#ff6ac1]/20 rounded-full blur-[160px] z-0" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#ffb86c]/20 dark:bg-[#7f5af0]/20 rounded-full blur-[140px] z-0" />
 
-      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +79,6 @@ export default function Achievements() {
         </p>
       </motion.div>
 
-      {/* Cards */}
       <div className="relative z-10 max-w-6xl mx-auto grid gap-12 md:grid-cols-2 lg:grid-cols-3">
         {achievements.map((item, i) => (
           <motion.div
@@ -91,7 +88,7 @@ export default function Achievements() {
             whileInView="show"
             variants={cardVariants}
             viewport={{ once: true }}
-            className="group relative bg-white/70 dark:bg-white/5 backdrop-blur-3xl border border-white/20 dark:border-white/10 rounded-3xl p-6 shadow-2xl hover:shadow-indigo-500/30 hover:scale-[1.03] transition-all duration-300"
+            className="group relative  bg-white/70 dark:bg-white/5 backdrop-blur-3xl border border-white/20 dark:border-white/10 rounded-3xl p-6 shadow-2xl hover:shadow-indigo-500/30 hover:scale-[1.03] transition-all duration-300"
           >
             <div className="flex flex-col gap-3">
               <p className="text-sm text-[#7f5af0] dark:text-[#ffb86c] font-medium tracking-wide">

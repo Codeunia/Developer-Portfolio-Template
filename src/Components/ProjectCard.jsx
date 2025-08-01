@@ -23,12 +23,10 @@ const ProjectCard = ({ project, index }) => {
         transition={{ type: "spring", stiffness: 200, damping: 18 }}
         className="relative group bg-white dark:bg-zinc-900 border dark:border-zinc-700 border-zinc-200 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform transition-all duration-300"
       >
-        {/* Floating index */}
         <div className="absolute top-4 left-4 text-sm font-semibold text-zinc-400 dark:text-zinc-600 tracking-widest z-10">
           0{index + 1}
         </div>
 
-        {/* Image */}
         <div className="relative cursor-pointer" onClick={() => setIsOpen(true)}>
           <img
             src={project.image}
@@ -38,7 +36,6 @@ const ProjectCard = ({ project, index }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
         </div>
 
-        {/* Card Content */}
         <div className="p-6">
           <h3 className="text-2xl font-bold text-zinc-800 dark:text-white mb-2">
             {project.title}
@@ -47,7 +44,6 @@ const ProjectCard = ({ project, index }) => {
             {project.description}
           </p>
 
-          {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-5">
             {project.tags.map((tag, i) => (
               <span
@@ -59,7 +55,6 @@ const ProjectCard = ({ project, index }) => {
             ))}
           </div>
 
-          {/* Buttons */}
           <div className="flex gap-3">
             <a
               href={project.link}
@@ -81,7 +76,6 @@ const ProjectCard = ({ project, index }) => {
         </div>
       </motion.div>
 
-      {/* Modal (Lightbox) */}
       {isOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"

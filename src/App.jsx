@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './Components/Header';
-import Hero from './Components/Hero';
 import About from './Components/About';
 import Skills from './Components/Skills';
 import Projects from './Components/Projects';
 import Achievements from './Components/Achievements';
 import Contact from './Components/Contact';
+import AIWidget from './Components/AIWidget';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -54,6 +54,7 @@ function App() {
                 <Contact />
               </section>
             </main>
+            <AIWidget/>
           </>
         )}
       </AnimatePresence>

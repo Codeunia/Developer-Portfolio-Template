@@ -7,6 +7,7 @@ import Projects from './Components/Projects';
 import Achievements from './Components/Achievements';
 import Contact from './Components/Contact';
 import AIWidget from './Components/AIWidget';
+import EducationExperience from './Components/Experince';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -50,6 +51,7 @@ function App() {
                 <About />
                 <Skills />
                 <Projects />
+                <EducationExperience/>
                 <Achievements />
                 <Contact />
               </section>
